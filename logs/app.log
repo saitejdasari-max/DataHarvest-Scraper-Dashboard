@@ -1,0 +1,23 @@
+2026-06-13 21:48:35 | INFO     | app.main:lifespan:18 | Starting Scraper Dashboard v1.0.0
+2026-06-13 21:49:08 | INFO     | app.main:lifespan:18 | Starting Scraper Dashboard v1.0.0
+2026-06-13 21:52:18 | INFO     | app.main:lifespan:18 | Starting Scraper Dashboard v1.0.0
+2026-06-13 21:52:33 | INFO     | app.main:lifespan:18 | Starting Scraper Dashboard v1.0.0
+2026-06-13 21:59:10 | INFO     | app.main:lifespan:18 | Starting Scraper Dashboard v1.0.0
+2026-06-13 22:20:35 | INFO     | app.main:lifespan:18 | Starting Scraper Dashboard v1.0.0
+2026-06-13 22:20:35 | INFO     | app.database.session:init_db:38 | Database tables initialised
+2026-06-13 22:20:35 | INFO     | app.services.scheduler:start_scheduler:65 | [Scheduler] Started
+2026-06-13 22:21:36 | INFO     | app.main:lifespan:18 | Starting Scraper Dashboard v1.0.0
+2026-06-13 22:21:36 | INFO     | app.database.session:init_db:38 | Database tables initialised
+2026-06-13 22:21:36 | INFO     | app.services.scheduler:start_scheduler:65 | [Scheduler] Started
+2026-06-13 22:28:41 | INFO     | app.database.repository:create:21 | Created scrape job: Demo Job Scraper (id=1)
+2026-06-13 22:28:44 | INFO     | app.services.scraper_service:run_job:50 | Running job id=1 type=JobType.JOBS url=https://quotes.toscrape.com
+2026-06-13 22:28:44 | INFO     | app.scrapers.base:run:108 | [hackernews] Starting scrape for job_id=1
+2026-06-13 22:28:46 | ERROR    | app.scrapers.base:run:118 | [hackernews] Scrape failed: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2026-06-13 22:28:46 | ERROR    | app.services.scraper_service:run_job:72 | Job 1 failed: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
+2026-06-13 22:43:13 | INFO     | app.services.scheduler:stop_scheduler:72 | [Scheduler] Stopped
+2026-06-13 22:43:13 | INFO     | app.main:lifespan:24 | Application shutdown
+2026-06-13 22:43:20 | INFO     | app.main:lifespan:18 | Starting Scraper Dashboard v1.0.0
+2026-06-13 22:43:20 | INFO     | app.database.session:init_db:38 | Database tables initialised
+2026-06-13 22:43:20 | INFO     | app.services.scheduler:start_scheduler:65 | [Scheduler] Started
+2026-06-13 22:44:51 | INFO     | app.services.scheduler:stop_scheduler:72 | [Scheduler] Stopped
+2026-06-13 22:44:51 | INFO     | app.main:lifespan:24 | Application shutdown

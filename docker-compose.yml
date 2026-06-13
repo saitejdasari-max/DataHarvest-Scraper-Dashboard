@@ -1,0 +1,58 @@
+version: "3.9"
+
+services:
+  # ── PostgreSQL ──────────────────────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: scraper_user
+      POSTGRES_PASSWORD: scraper_pass
+      POSTGRES_DB: scraper_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U scraper_user -d scraper_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── FastAPI application ─────────────────────────────────────────────────
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://scraper_user:scraper_pass@db:5432/scraper_db
+      DEBUG: "false"
+      SCHEDULER_ENABLED: "true"
+      SELENIUM_HEADLESS: "true"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./logs:/app/logs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ── Optional: Adminer (DB GUI) ──────────────────────────────────────────
+  adminer:
+    image: adminer:latest
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+    profiles:
+      - tools
+
+volumes:
+  postgres_data:
