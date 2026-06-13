@@ -1,2 +1,0 @@
-2026-06-13 22:28:46 | ERROR    | app.scrapers.base:run:118 | [hackernews] Scrape failed: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
-2026-06-13 22:28:46 | ERROR    | app.services.scraper_service:run_job:72 | Job 1 failed: Couldn't find a tree builder with the features you requested: lxml. Do you need to install a parser library?
